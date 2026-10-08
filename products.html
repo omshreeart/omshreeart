@@ -1,0 +1,487 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Products | Om Shree Art</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><style>
+.prod-hero{background:linear-gradient(135deg,#0a0010,#1a0008);padding:120px 0 60px;text-align:center;}
+.prod-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,96px);color:#fff;line-height:1;}
+.prod-hero h1 span{color:#D4A853;}
+.prod-hero p{color:rgba(255,255,255,.45);font-size:16px;margin-top:12px;}
+.prod-filter{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:40px 24px 0;}
+.filter-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6);padding:9px 22px;border-radius:30px;cursor:pointer;font-size:13px;font-weight:600;transition:.2s;letter-spacing:.5px;}
+.filter-btn:hover,.filter-btn.active{background:#B02238;border-color:#B02238;color:#fff;}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto;padding:50px 24px 100px;}
+@media(max-width:900px){.prod-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.prod-grid{grid-template-columns:1fr;}}
+.prod-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;transition:.25s;cursor:pointer;}
+.prod-card:hover{transform:translateY(-6px);border-color:rgba(176,34,56,.5);box-shadow:0 20px 50px rgba(176,34,56,.15);}
+.prod-card-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;overflow:hidden;}
+.prod-card-body{padding:22px;}
+.prod-card-cat{font-size:10px;letter-spacing:2px;color:#B02238;font-weight:700;text-transform:uppercase;margin-bottom:8px;}
+.prod-card-name{font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;}
+.prod-card-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65;margin-bottom:16px;}
+.prod-card-price{font-size:15px;font-weight:700;color:#D4A853;margin-bottom:16px;}
+.prod-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+.prod-tag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:11px;padding:3px 10px;border-radius:20px;}
+.prod-order-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:linear-gradient(90deg,#B02238,#8a0f27);color:#fff;border:none;padding:12px;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer;text-decoration:none;transition:.2s;}
+.prod-order-btn:hover{background:linear-gradient(90deg,#cf2a45,#B02238);}
+.section-label{text-align:center;font-size:11px;letter-spacing:3px;color:#B02238;font-weight:700;text-transform:uppercase;margin-top:60px;margin-bottom:4px;}
+.section-title{text-align:center;font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,56px);color:#fff;margin-bottom:0;}
+
+.det-toggle{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);padding:9px 14px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:0;margin-top:4px;text-align:left;transition:.2s;}
+.det-toggle:hover{background:rgba(176,34,56,.15);border-color:#B02238;color:#fff;}
+.det-box{display:none;margin-top:14px;border-top:1px solid rgba(255,255,255,.07);padding-top:14px;}
+.det-box.open{display:block;}
+.det-section{margin-bottom:14px;font-size:12px;color:rgba(255,255,255,.7);line-height:1.6;}
+.det-section b{color:#D4A853;display:block;margin-bottom:6px;font-size:12px;}
+.det-list{margin:0;padding-left:16px;}
+.det-list li{margin-bottom:3px;color:rgba(255,255,255,.6);font-size:12px;}
+.det-table{width:100%;border-collapse:collapse;margin-top:6px;font-size:11.5px;}
+.det-table th{background:rgba(176,34,56,.2);color:#D4A853;padding:5px 8px;text-align:left;font-weight:700;}
+.det-table td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.65);}
+.det-table tr:hover td{background:rgba(255,255,255,.03);}
+</style></head>
+<body style="background:#06000f;color:#fff;font-family:'Inter',sans-serif;">
+<div style="background:linear-gradient(90deg,#8B0000,#B02238,#8B0000);text-align:center;padding:10px 20px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.3px;position:relative;z-index:200;">
+  &#127880; Dashain &amp; Tihar Special &mdash; &nbsp;<b>25% OFF</b>&nbsp; on all orders &mdash; &nbsp;<a href="contact.html" style="color:#FFD700;text-decoration:none;font-weight:700;">Order Now &rarr;</a>
+</div>
+<nav style="display:flex;align-items:center;padding:0 32px;height:68px;background:rgba(6,0,15,.95);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07);position:sticky;top:0;z-index:100;">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;">
+    <img src="img/omshreeart-logo.svg" alt="OSA" style="height:40px;width:40px;object-fit:contain;border-radius:8px;">
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-weight:700;font-size:14px;color:#fff;letter-spacing:.3px;">Om Shree Art</span>
+      <span style="font-size:9px;color:rgba(255,255,255,.4);letter-spacing:1.5px;text-transform:uppercase;">Premium Printing Studio</span>
+    </div>
+  </a>
+  <!-- Search Bar -->
+<div id="navSearch" style="position:relative;margin:0 20px;flex:1;max-width:300px;">
+  <div id="searchWrap" style="display:flex;align-items:center;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.15);border-radius:30px;padding:0 14px;height:38px;transition:.25s;">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="searchInput" placeholder="Search..." autocomplete="off"
+      style="flex:1;background:none;border:none;outline:none;color:#fff;font-size:13px;padding:0 10px;font-family:inherit;"
+      onfocus="this.closest('#searchWrap')||document.getElementById('searchWrap').style.background='rgba(255,255,255,.16)';document.getElementById('searchWrap').style.borderColor='rgba(176,34,56,.7)'"
+      onblur="setTimeout(function(){document.getElementById('searchWrap').style.background='rgba(255,255,255,.1)';document.getElementById('searchWrap').style.borderColor='rgba(255,255,255,.15)'},150)"
+      oninput="doSearch(this.value)">
+    <span id="clearBtn" onclick="clearSrch()" style="display:none;color:rgba(255,255,255,.4);cursor:pointer;font-size:18px;line-height:1;padding-left:4px;">&times;</span>
+  </div>
+  <div id="searchResults" style="display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;min-width:260px;background:rgba(8,0,22,.98);border:1px solid rgba(176,34,56,.3);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.85);z-index:9999;"></div>
+</div>
+  <div style="display:flex;align-items:center;gap:28px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.65);font-weight:500;text-decoration:none;font-size:14px;transition:.2s;">Home</a>
+    <a href="products.html" style="color:#D4A853;font-weight:700;text-decoration:none;font-size:14px;transition:.2s;">Products</a>
+    <a href="contact.html" style="color:rgba(255,255,255,.65);font-weight:500;text-decoration:none;font-size:14px;transition:.2s;">Contact</a>
+    <a href="faq.html" style="color:rgba(255,255,255,.65);font-weight:500;text-decoration:none;font-size:14px;transition:.2s;">FAQ</a>
+    <a href="terms.html" style="color:rgba(255,255,255,.65);font-weight:500;text-decoration:none;font-size:14px;transition:.2s;">Terms</a>
+    
+  </div>
+  <a href="about.html" aria-label="View our portfolio" style="display:flex;align-items:center;gap:7px;background:#D4A853;color:#150b1c;padding:9px 18px;border-radius:30px;text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg>
+    Portfolio
+  </a>
+</nav>
+<section class="prod-hero"><h1>OUR <span>PRODUCTS</span></h1><p>Premium quality printing for every business need — delivered across Kathmandu valley</p></section>
+<div class="prod-filter">
+  <button class="filter-btn active" data-cat="all">All Products</button>
+  <button class="filter-btn" data-cat="signage">Signage</button>
+  <button class="filter-btn" data-cat="print">Print & Paper</button>
+  <button class="filter-btn" data-cat="stamp">Stamps & Plates</button>
+  <button class="filter-btn" data-cat="outdoor">Outdoor</button>
+</div>
+<div class="prod-grid" id="prodGrid">
+
+<!-- BUSINESS CARDS -->
+<div class="prod-card" data-cat="print">
+  <div class="prod-card-img" style="background:linear-gradient(135deg,#1a0830,#2d1060);">🪪</div>
+  <div class="prod-card-body">
+    <div class="prod-card-cat">Print & Paper</div>
+    <div class="prod-card-name">Business Cards</div>
+    <div class="prod-card-desc">Make a lasting first impression with our premium business cards. Printed on thick 350gsm card stock with vibrant full-color printing on both sides.</div>
+    <div class="prod-card-price">Starting Rs. 350</div>
+    <div class="prod-card-tags"><span class="prod-tag">Matte</span><span class="prod-tag">Glossy</span><span class="prod-tag">UV Coated</span><span class="prod-tag">Same Day</span></div>
+    <button class="det-toggle" onclick="toggleDet(this)">▼ View Full Details</button>
+    <div class="det-box">
+      <div class="det-section">📐 <b>Sizes Available</b>
+        <table class="det-table"><tr><th>Size</th><th>Price (100 pcs)</th></tr>
+        <tr><td>Standard 3.5" × 2"</td><td>Rs. 350</td></tr>
+        <tr><td>Square 2.5" × 2.5"</td><td>Rs. 420</td></tr>
+        <tr><td>Slim 3.5" × 1.5"</td><td>Rs. 380</td></tr>
+        <tr><td>Custom Size</td><td>On Request</td></tr></table>
+      </div>
+      <div class="det-section">🎨 <b>Finish Options</b>
+        <ul class="det-list"><li>Matte Lamination — Elegant soft touch feel</li><li>Glossy Lamination — Vibrant shiny finish</li><li>UV Spot Coating — Highlighted glossy areas</li><li>Soft Touch Velvet — Premium luxury feel</li><li>Uncoated — Natural paper feel</li></ul>
+      </div>
+      <div class="det-section">📦 <b>Paper & Printing</b>
+        <ul class="det-list"><li>300–350 gsm premium card stock</li><li>Full color CMYK printing (both sides)</li><li>High resolution 1440 DPI printing</li><li>Optional embossing & foil stamping</li></ul>
+      </div>
+      <div class="det-section">⏱️ <b>Turnaround Time</b>
+        <ul class="det-list"><li>Same Day — Order before 12 PM (extra charge)</li><li>Standard — Ready in 24–48 hours</li><li>Bulk Orders (500+) — 2–3 days</li></ul>
+      </div>
+      <div class="det-section">✅ <b>What's Included</b>
+        <ul class="det-list"><li>Free design consultation</li><li>Free minor design edits (1 revision)</li><li>Packaged in box for safe delivery</li><li>Free delivery within Ring Road</li></ul>
+      </div>
+    </div>
+    <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order want to order Business Cards" class="prod-order-btn">💬 Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- SIGN BOARDS -->
+<div class="prod-card" data-cat="signage">
+  <div class="prod-card-img" style="background:linear-gradient(135deg,#001830,#003060);">🪟</div>
+  <div class="prod-card-body">
+    <div class="prod-card-cat">Signage</div>
+    <div class="prod-card-name">Sign Boards</div>
+    <div class="prod-card-desc">Make your shop, office or restaurant stand out with eye-catching custom sign boards. Available in acrylic, flex, aluminum composite and LED backlit options.</div>
+    <div class="prod-card-price">Starting Rs. 2,500</div>
+    <div class="prod-card-tags"><span class="prod-tag">LED Backlit</span><span class="prod-tag">Acrylic</span><span class="prod-tag">Flex</span><span class="prod-tag">Custom Size</span></div>
+    <button class="det-toggle" onclick="toggleDet(this)">▼ View Full Details</button>
+    <div class="det-box">
+      <div class="det-section">📐 <b>Types & Pricing</b>
+        <table class="det-table"><tr><th>Type</th><th>Starting Price</th></tr>
+        <tr><td>Flex Sign Board (3×2 ft)</td><td>Rs. 2,500</td></tr>
+        <tr><td>Acrylic Board (3×2 ft)</td><td>Rs. 4,500</td></tr>
+        <tr><td>ACP (Aluminum Composite)</td><td>Rs. 6,000</td></tr>
+        <tr><td>LED Backlit Board</td><td>Rs. 8,000</td></tr>
+        <tr><td>3D Letter Sign</td><td>Rs. 12,000</td></tr></table>
+      </div>
+      <div class="det-section">🎨 <b>Materials</b>
+        <ul class="det-list"><li>Flex — Durable PVC flex with vivid colors</li><li>Acrylic — Premium clear or colored acrylic sheets</li><li>ACP — Aluminum composite for premium durability</li><li>Stainless Steel — High end premium finish</li></ul>
+      </div>
+      <div class="det-section">💡 <b>LED Options</b>
+        <ul class="det-list"><li>Backlit LED box signs</li><li>Neon effect LED signs</li><li>3D channel letter LED signs</li><li>Edge-lit acrylic LED panels</li></ul>
+      </div>
+      <div class="det-section">⏱️ <b>Turnaround Time</b>
+        <ul class="det-list"><li>Flex Sign — 1–2 days</li><li>Acrylic/ACP — 3–5 days</li><li>LED Backlit — 5–7 days</li><li>3D Letters — 7–10 days</li></ul>
+      </div>
+      <div class="det-section">✅ <b>What's Included</b>
+        <ul class="det-list"><li>Free site visit for measurement (inside valley)</li><li>Free design & layout</li><li>Installation at extra charge</li><li>1-year warranty on LED signs</li></ul>
+      </div>
+    </div>
+    <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order want to order Sign Boards" class="prod-order-btn">💬 Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- FLEX PRINTING -->
+<div class="prod-card" data-cat="outdoor">
+  <div class="prod-card-img" style="background:linear-gradient(135deg,#0a1800,#1a3500);">🏷️</div>
+  <div class="prod-card-body">
+    <div class="prod-card-cat">Outdoor</div>
+    <div class="prod-card-name">Flex Printing</div>
+    <div class="prod-card-desc">Large format flex printing for hoardings, banners and outdoor advertising. UV resistant inks ensure colors stay vivid under sun and rain.</div>
+    <div class="prod-card-price">Starting Rs. 900</div>
+    <div class="prod-card-tags"><span class="prod-tag">UV Resistant</span><span class="prod-tag">Weatherproof</span><span class="prod-tag">Any Size</span></div>
+    <button class="det-toggle" onclick="toggleDet(this)">▼ View Full Details</button>
+    <div class="det-box">
+      <div class="det-section">📐 <b>Pricing by Size</b>
+        <table class="det-table"><tr><th>Size</th><th>Price</th></tr>
+        <tr><td>2 × 4 ft</td><td>Rs. 900</td></tr>
+        <tr><td>3 × 6 ft</td><td>Rs. 1,800</td></tr>
+        <tr><td>4 × 8 ft</td><td>Rs. 3,200</td></tr>
+        <tr><td>6 × 10 ft</td><td>Rs. 6,000</td></tr>
+        <tr><td>Custom (per sqft)</td><td>Rs. 100–150</td></tr></table>
+      </div>
+      <div class="det-section">🎨 <b>Flex Types</b>
+        <ul class="det-list"><li>Star Flex — Standard outdoor use</li><li>Backlit Flex — For illuminated frames</li><li>Glossy Flex — High shine finish</li><li>Matte Flex — Reduced glare</li><li>Solvent Flex — Extra durable for long term</li></ul>
+      </div>
+      <div class="det-section">🖨️ <b>Print Specifications</b>
+        <ul class="det-list"><li>UV-resistant solvent inks</li><li>720–1440 DPI resolution</li><li>Hemmed edges with eyelets on request</li><li>Width up to 10 ft, unlimited length</li></ul>
+      </div>
+      <div class="det-section">⏱️ <b>Turnaround Time</b>
+        <ul class="det-list"><li>Small (up to 4×6 ft) — Same day</li><li>Medium — 1–2 days</li><li>Large hoarding — 2–3 days</li></ul>
+      </div>
+      <div class="det-section">✅ <b>What's Included</b>
+        <ul class="det-list"><li>Free design layout</li><li>Eyelets & hemming on request</li><li>Available with pole pockets</li><li>Bulk discount for 5+ pieces</li></ul>
+      </div>
+    </div>
+    <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order want to order Flex Printing" class="prod-order-btn">💬 Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- RUBBER STAMPS -->
+<div class="prod-card" data-cat="stamp">
+  <div class="prod-card-img" style="background:linear-gradient(135deg,#180a00,#3a1800);">🔏</div>
+  <div class="prod-card-body">
+    <div class="prod-card-cat">Stamps</div>
+    <div class="prod-card-name">Rubber Stamps</div>
+    <div class="prod-card-desc">Custom rubber stamps for offices, businesses, banks, schools and personal use. Self-inking options available for fast and clean impressions every time.</div>
+    <div class="prod-card-price">Starting Rs. 450</div>
+    <div class="prod-card-tags"><span class="prod-tag">Self-Inking</span><span class="prod-tag">Traditional</span><span class="prod-tag">Custom Design</span></div>
+    <button class="det-toggle" onclick="toggleDet(this)">▼ View Full Details</button>
+    <div class="det-box">
+      <div class="det-section">📐 <b>Types & Pricing</b>
+        <table class="det-table"><tr><th>Type</th><th>Price</th></tr>
+        <tr><td>Traditional Handle Stamp</td><td>Rs. 450</td></tr>
+        <tr><td>Self-Inking Stamp (small)</td><td>Rs. 650</td></tr>
+        <tr><td>Self-Inking Stamp (medium)</td><td>Rs. 850</td></tr>
+        <tr><td>Self-Inking Stamp (large)</td><td>Rs. 1,200</td></tr>
+        <tr><td>Pocket/Mini Stamp</td><td>Rs. 550</td></tr>
+        <tr><td>Date Stamp</td><td>Rs. 750</td></tr></table>
+      </div>
+      <div class="det-section">🎨 <b>Ink Colors</b>
+        <ul class="det-list"><li>Blue (most common for offices)</li><li>Red (for urgent/important marks)</li><li>Black (for contracts & legal docs)</li><li>Green, Violet, Custom color available</li></ul>
+      </div>
+      <div class="det-section">📋 <b>Popular Uses</b>
+        <ul class="det-list"><li>Company name & address stamps</li><li>PAID / RECEIVED / APPROVED stamps</li><li>Signature stamps</li><li>School & hospital stamps</li><li>Logo stamps for packaging</li><li>Date stamps for offices</li></ul>
+      </div>
+      <div class="det-section">⏱️ <b>Turnaround Time</b>
+        <ul class="det-list"><li>Same day (order before 12 PM)</li><li>Standard: Ready in 2–4 hours</li><li>Bulk order (10+): 1 day</li></ul>
+      </div>
+      <div class="det-section">✅ <b>What's Included</b>
+        <ul class="det-list"><li>Custom design from your text/logo</li><li>Free 1 design revision</li><li>Ink pad included with handle stamp</li><li>Re-inking service available</li></ul>
+      </div>
+    </div>
+    <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order want to order Rubber Stamps" class="prod-order-btn">💬 Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- NUMBER PLATES -->
+<div class="prod-card" data-cat="stamp">
+  <div class="prod-card-img" style="background:linear-gradient(135deg,#001818,#003030);">🔢</div>
+  <div class="prod-card-body">
+    <div class="prod-card-cat">Plates</div>
+    <div class="prod-card-name">Number Plates</div>
+    <div class="prod-card-desc">Standard and custom vehicle number plates for bikes, cars, trucks and heavy vehicles. Reflective and non-reflective options with Nepal government approved formats.</div>
+    <div class="prod-card-price">Starting Rs. 800</div>
+    <div class="prod-card-tags"><span class="prod-tag">Reflective</span><span class="prod-tag">Standard</span><span class="prod-tag">Custom</span></div>
+    <button class="det-toggle" onclick="toggleDet(this)">▼ View Full Details</button>
+    <div class="det-box">
+      <div class="det-section">📐 <b>Types & Pricing</b>
+        <table class="det-table"><tr><th>Vehicle Type</th><th>Price</th></tr>
+        <tr><td>Motorcycle (standard)</td><td>Rs. 800</td></tr>
+        <tr><td>Car / Jeep (standard)</td><td>Rs. 1,000</td></tr>
+        <tr><td>Truck / Bus</td><td>Rs. 1,500</td></tr>
+        <tr><td>Reflective (motorcycle)</td><td>Rs. 1,200</td></tr>
+        <tr><td>Reflective (car/jeep)</td><td>Rs. 1,500</td></tr>
+        <tr><td>3D Embossed Plate</td><td>Rs. 2,500</td></tr></table>
+      </div>
+      <div class="det-section">🛡️ <b>Materials</b>
+        <ul class="det-list"><li>Aluminum sheet (standard grade)</li><li>High-grade aluminum (premium)</li><li>Reflective 3M grade sheeting</li><li>Anti-rust coating for long life</li></ul>
+      </div>
+      <div class="det-section">🎨 <b>Plate Options</b>
+        <ul class="det-list"><li>Black on yellow (private vehicles)</li><li>Black on white (commercial)</li><li>Red on yellow (government)</li><li>Custom color on request</li><li>Flag/logo emblem optional</li></ul>
+      </div>
+      <div class="det-section">⏱️ <b>Turnaround Time</b>
+        <ul class="det-list"><li>Standard plates — Same day (2–3 hrs)</li><li>Reflective plates — 1 day</li><li>3D Embossed — 2 days</li></ul>
+      </div>
+      <div class="det-section">✅ <b>What's Included</b>
+        <ul class="det-list"><li>Both front and back plates (per set)</li><li>Mounting screws & bolts</li><li>Nepal Govt format compliant</li><li>Bulk discounts for fleet owners</li></ul>
+      </div>
+    </div>
+    <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order want to order Number Plates" class="prod-order-btn">💬 Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- STICKER PRINTING -->
+<div class="prod-card" data-cat="print">
+  <div class="prod-card-img" style="background:linear-gradient(135deg,#180018,#300030);">🏷️</div>
+  <div class="prod-card-body">
+    <div class="prod-card-cat">Print & Paper</div>
+    <div class="prod-card-name">Sticker Printing</div>
+    <div class="prod-card-desc">Die-cut and roll stickers for product labeling, branding, packaging and decoration. Waterproof vinyl options that last outdoors for 3–5 years without fading.</div>
+    <div class="prod-card-price">Starting Rs. 200</div>
+    <div class="prod-card-tags"><span class="prod-tag">Die-Cut</span><span class="prod-tag">Waterproof</span><span class="prod-tag">Roll Stickers</span></div>
+    <button class="det-toggle" onclick="toggleDet(this)">▼ View Full Details</button>
+    <div class="det-box">
+      <div class="det-section">📐 <b>Types & Pricing</b>
+        <table class="det-table"><tr><th>Type</th><th>Starting Price</th></tr>
+        <tr><td>Paper Sticker (A4 sheet)</td><td>Rs. 200</td></tr>
+        <tr><td>Vinyl Sticker (A4 sheet)</td><td>Rs. 350</td></tr>
+        <tr><td>Die-Cut Custom Shape (50 pcs)</td><td>Rs. 500</td></tr>
+        <tr><td>Roll Sticker (per meter)</td><td>Rs. 150</td></tr>
+        <tr><td>Transparent Sticker</td><td>Rs. 400</td></tr>
+        <tr><td>Holographic Sticker</td><td>Rs. 600</td></tr></table>
+      </div>
+      <div class="det-section">🎨 <b>Material Options</b>
+        <ul class="det-list"><li>Glossy paper — For indoor product labels</li><li>Matte paper — Premium label look</li><li>Vinyl — Waterproof, outdoor grade</li><li>Transparent vinyl — See-through labels</li><li>Holographic — Eye-catching foil effect</li><li>Kraft paper — Eco-friendly natural look</li></ul>
+      </div>
+      <div class="det-section">✂️ <b>Cutting Options</b>
+        <ul class="det-list"><li>Sheet stickers (multiple per page)</li><li>Die-cut to any custom shape</li><li>Kiss-cut (sticker on backing sheet)</li><li>Roll stickers for dispensers</li></ul>
+      </div>
+      <div class="det-section">⏱️ <b>Turnaround Time</b>
+        <ul class="det-list"><li>Sheet stickers — Same day</li><li>Die-cut custom — 1–2 days</li><li>Roll stickers (100m+) — 2–3 days</li></ul>
+      </div>
+      <div class="det-section">✅ <b>What's Included</b>
+        <ul class="det-list"><li>Free design from your logo/text</li><li>Waterproof coating on vinyl</li><li>UV-resistant inks for outdoor use</li><li>Bulk pricing for 500+ pieces</li></ul>
+      </div>
+    </div>
+    <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order want to order Stickers" class="prod-order-btn">💬 Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- BANNER PRINTING -->
+<div class="prod-card" data-cat="outdoor">
+  <div class="prod-card-img" style="background:linear-gradient(135deg,#0a1200,#1c2800);">🎌</div>
+  <div class="prod-card-body">
+    <div class="prod-card-cat">Outdoor</div>
+    <div class="prod-card-name">Banner Printing</div>
+    <div class="prod-card-desc">High quality banners for events, promotions, trade shows and political campaigns. Available with or without stands in roll-up, X-banner and hanging formats.</div>
+    <div class="prod-card-price">Starting Rs. 600</div>
+    <div class="prod-card-tags"><span class="prod-tag">With Stand</span><span class="prod-tag">Roll-Up</span><span class="prod-tag">Custom Size</span></div>
+    <button class="det-toggle" onclick="toggleDet(this)">▼ View Full Details</button>
+    <div class="det-box">
+      <div class="det-section">📐 <b>Types & Pricing</b>
+        <table class="det-table"><tr><th>Type</th><th>Price</th></tr>
+        <tr><td>Flex Banner (2×4 ft)</td><td>Rs. 600</td></tr>
+        <tr><td>Flex Banner (3×6 ft)</td><td>Rs. 1,400</td></tr>
+        <tr><td>X-Banner (60×160 cm) with stand</td><td>Rs. 1,800</td></tr>
+        <tr><td>Roll-Up Banner (85×200 cm) with stand</td><td>Rs. 3,500</td></tr>
+        <tr><td>Teardrop Flag Banner (with stand)</td><td>Rs. 4,500</td></tr>
+        <tr><td>Table Banner (60×25 cm)</td><td>Rs. 800</td></tr></table>
+      </div>
+      <div class="det-section">🖨️ <b>Print Specifications</b>
+        <ul class="det-list"><li>High-res 1440 DPI full color print</li><li>UV-resistant inks for outdoor use</li><li>Hemmed edges with metal eyelets</li><li>Pole pocket option available</li></ul>
+      </div>
+      <div class="det-section">🎪 <b>Best For</b>
+        <ul class="det-list"><li>Wedding & event decoration</li><li>Shop opening & promotions</li><li>Trade show & exhibition displays</li><li>Political campaigns & rallies</li><li>School & college events</li></ul>
+      </div>
+      <div class="det-section">⏱️ <b>Turnaround Time</b>
+        <ul class="det-list"><li>Flex banners — Same day</li><li>Roll-up/X-banner with stand — 1–2 days</li><li>Bulk banners (10+) — 2–3 days</li></ul>
+      </div>
+      <div class="det-section">✅ <b>What's Included</b>
+        <ul class="det-list"><li>Free design layout</li><li>Stands include carry bag</li><li>Eyelets & rope on request</li><li>10% discount on 5+ pieces</li></ul>
+      </div>
+    </div>
+    <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order want to order Banners" class="prod-order-btn">💬 Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- LED SIGN BOARDS -->
+<div class="prod-card" data-cat="signage">
+  <div class="prod-card-img" style="background:linear-gradient(135deg,#180800,#301500);">💡</div>
+  <div class="prod-card-body">
+    <div class="prod-card-cat">Signage</div>
+    <div class="prod-card-name">LED Sign Boards</div>
+    <div class="prod-card-desc">Bright LED illuminated sign boards that make your business visible day and night. Energy efficient, long lasting and available in indoor and outdoor grades.</div>
+    <div class="prod-card-price">Starting Rs. 5,000</div>
+    <div class="prod-card-tags"><span class="prod-tag">LED</span><span class="prod-tag">Energy Efficient</span><span class="prod-tag">Indoor/Outdoor</span></div>
+    <button class="det-toggle" onclick="toggleDet(this)">▼ View Full Details</button>
+    <div class="det-box">
+      <div class="det-section">📐 <b>Types & Pricing</b>
+        <table class="det-table"><tr><th>Type</th><th>Starting Price</th></tr>
+        <tr><td>LED Backlit Box Sign (2×3 ft)</td><td>Rs. 5,000</td></tr>
+        <tr><td>LED Backlit Box Sign (3×5 ft)</td><td>Rs. 8,500</td></tr>
+        <tr><td>Neon Effect LED Sign</td><td>Rs. 4,500</td></tr>
+        <tr><td>3D LED Channel Letters (per ft)</td><td>Rs. 2,500</td></tr>
+        <tr><td>LED Scrolling Display</td><td>Rs. 7,000</td></tr>
+        <tr><td>LED Light Box (slim)</td><td>Rs. 6,000</td></tr></table>
+      </div>
+      <div class="det-section">💡 <b>LED Specifications</b>
+        <ul class="det-list"><li>Samsung/Epistar LED modules</li><li>50,000+ hours lifespan</li><li>80% energy saving vs neon</li><li>Waterproof IP65 rated (outdoor)</li><li>Brightness: 800–1200 cd/m²</li></ul>
+      </div>
+      <div class="det-section">🔧 <b>Frame Options</b>
+        <ul class="det-list"><li>Aluminum frame (lightweight)</li><li>Stainless steel (premium)</li><li>ACP (aluminum composite panel)</li><li>Acrylic face (clear or frosted)</li></ul>
+      </div>
+      <div class="det-section">⏱️ <b>Turnaround Time</b>
+        <ul class="det-list"><li>LED Box Sign — 5–7 days</li><li>3D Channel Letters — 7–10 days</li><li>Neon Effect — 3–5 days</li><li>Includes free installation in valley</li></ul>
+      </div>
+      <div class="det-section">✅ <b>What's Included</b>
+        <ul class="det-list"><li>Free site measurement visit</li><li>Free design & layout</li><li>Free installation within Kathmandu Valley</li><li>1 year warranty on LED modules</li><li>After-sales maintenance support</li></ul>
+      </div>
+    </div>
+    <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order want to order LED Sign Boards" class="prod-order-btn">💬 Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- BROCHURE & FLYER -->
+<div class="prod-card" data-cat="print">
+  <div class="prod-card-img" style="background:linear-gradient(135deg,#001818,#002a28);">📄</div>
+  <div class="prod-card-body">
+    <div class="prod-card-cat">Print & Paper</div>
+    <div class="prod-card-name">Brochure & Flyer</div>
+    <div class="prod-card-desc">Professionally printed brochures and flyers for marketing, promotions and events. Available in multiple folds and sizes on premium glossy or matte paper.</div>
+    <div class="prod-card-price">Starting Rs. 500</div>
+    <div class="prod-card-tags"><span class="prod-tag">A4/A5</span><span class="prod-tag">Tri-Fold</span><span class="prod-tag">Glossy</span></div>
+    <button class="det-toggle" onclick="toggleDet(this)">▼ View Full Details</button>
+    <div class="det-box">
+      <div class="det-section">📐 <b>Sizes & Pricing (100 pcs)</b>
+        <table class="det-table"><tr><th>Size / Type</th><th>Price</th></tr>
+        <tr><td>A5 Flyer (single side)</td><td>Rs. 500</td></tr>
+        <tr><td>A5 Flyer (both sides)</td><td>Rs. 700</td></tr>
+        <tr><td>A4 Flyer (single side)</td><td>Rs. 800</td></tr>
+        <tr><td>A4 Brochure (bi-fold)</td><td>Rs. 1,200</td></tr>
+        <tr><td>A4 Brochure (tri-fold)</td><td>Rs. 1,500</td></tr>
+        <tr><td>DL Brochure (tri-fold)</td><td>Rs. 1,300</td></tr></table>
+      </div>
+      <div class="det-section">🎨 <b>Paper Options</b>
+        <ul class="det-list"><li>90–170 gsm glossy art paper</li><li>100–160 gsm matte art paper</li><li>Premium 250 gsm silk paper</li><li>Recycled eco paper available</li></ul>
+      </div>
+      <div class="det-section">📋 <b>Fold Options</b>
+        <ul class="det-list"><li>Bi-fold (4 panels)</li><li>Tri-fold (6 panels) — most popular</li><li>Z-fold / Accordion fold</li><li>Gate fold (luxury look)</li></ul>
+      </div>
+      <div class="det-section">⏱️ <b>Turnaround Time</b>
+        <ul class="det-list"><li>Flyers (up to 500 pcs) — Same day</li><li>Brochures — 1–2 days</li><li>Bulk (1000+ pcs) — 2–3 days</li></ul>
+      </div>
+      <div class="det-section">✅ <b>What's Included</b>
+        <ul class="det-list"><li>Free design or layout using your content</li><li>Machine folding for brochures</li><li>Bulk discounts for 500+ pcs</li><li>Free delivery within Ring Road</li></ul>
+      </div>
+    </div>
+    <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order want to order Brochures" class="prod-order-btn">💬 Order on WhatsApp</a>
+  </div>
+</div>
+
+</div>
+
+<div style="text-align:center;padding:0 0 80px;"><p style="color:rgba(255,255,255,.4);font-size:14px;margin-bottom:20px;">Don't see what you need? We do custom printing too!</p><a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order need custom printing" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 36px;border-radius:30px;font-weight:700;text-decoration:none;font-size:15px;">💬 Ask for Custom Quote</a></div>
+<footer class="footer"><div class="container"><div class="footer-grid"><div><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><img src="img/omshreeart-logo.svg" style="height:36px;"><div><div style="font-weight:700;color:#fff;">Om Shree Art</div><div style="font-size:11px;color:rgba(255,255,255,.4);">PREMIUM PRINTING STUDIO</div></div></div><p style="color:rgba(255,255,255,.4);font-size:13px;line-height:1.7;">Kathmandu's #1 printing studio.</p></div><div><div style="font-weight:600;margin-bottom:14px;">Links</div><div style="display:flex;flex-direction:column;gap:8px;"><a href="index.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;">Home</a><a href="products.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;">Products</a><a href="faq.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;">FAQ</a><a href="terms.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;">Terms & Conditions</a><a href="contact.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;">Contact</a></div></div><div><div style="font-weight:600;margin-bottom:14px;">Contact</div><p style="color:rgba(255,255,255,.5);font-size:13px;line-height:1.9;">📞 9851154009 / 9803366993<br>📧 omshreeart@gmail.com<br>📍 Kathmandu, Nepal</p></div></div><div style="border-top:1px solid rgba(255,255,255,.07);margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;"><p style="color:rgba(255,255,255,.3);font-size:12px;">© 2024 Om Shree Art.</p><div style="display:flex;gap:20px;"><a href="faq.html" style="color:rgba(255,255,255,.3);font-size:12px;text-decoration:none;">FAQ</a><a href="terms.html" style="color:rgba(255,255,255,.3);font-size:12px;text-decoration:none;">Terms</a></div></div></div></footer>
+<script>
+const btns=document.querySelectorAll('.filter-btn');
+const cards=document.querySelectorAll('.prod-card');
+btns.forEach(btn=>btn.addEventListener('click',()=>{
+  btns.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cat=btn.dataset.cat;
+  cards.forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
+  });
+}));
+</script>
+
+<script>
+function toggleDet(btn){
+  var box = btn.nextElementSibling;
+  var open = box.classList.toggle('open');
+  btn.textContent = open ? '▲ Hide Details' : '▼ View Full Details';
+}
+</script>
+
+<script>
+(function(){
+var P=[
+  {n:"Business Cards",p:"Rs.350+",e:"🪪",u:"business-card-printing.html"},
+  {n:"Number Plates",p:"Rs.800+",e:"🔢",u:"number-plate.html"},
+  {n:"Rubber Stamps",p:"Rs.450+",e:"🔏",u:"rubber-stamp.html"},
+  {n:"Flex Printing",p:"Rs.900+",e:"🏷",u:"flex-printing.html"},
+  {n:"Sticker Printing",p:"Rs.200+",e:"⭐",u:"sticker-printing.html"},
+  {n:"Banner Printing",p:"Rs.600+",e:"🎌",u:"banner-printing.html"},
+  {n:"Sign Boards",p:"Rs.2.5k+",e:"💡",u:"sign-board.html"},
+  {n:"Products",p:"",e:"🛍",u:"products.html"},
+  {n:"FAQ",p:"",e:"❓",u:"faq.html"},
+  {n:"Terms",p:"",e:"📋",u:"terms.html"},
+  {n:"Contact",p:"",e:"📞",u:"contact.html"}
+];
+window.doSearch=function(q){
+  var res=document.getElementById("searchResults");
+  var clr=document.getElementById("clearBtn");
+  if(clr) clr.style.display=q?"inline":"none";
+  if(!q.trim()){res.style.display="none";return;}
+  var found=P.filter(function(x){return x.n.toLowerCase().indexOf(q.toLowerCase())>=0;});
+  if(found.length){
+    res.innerHTML=found.map(function(x){
+      return '<a href="'+x.u+'" style="padding:10px 14px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:12px"><span style="font-size:18px">'+x.e+'</span><div><div style="font-size:13px;font-weight:600">'+x.n+'</div>'+(x.p?'<div style="font-size:11px;color:#D4A853">'+x.p+'</div>':'')+'</div></a>';
+    }).join('');
+  } else {
+    res.innerHTML='<div style="padding:13px 16px;color:rgba(255,255,255,.35);font-size:13px">No results found</div>';
+  }
+  res.style.display="block";
+};
+window.clearSrch=function(){
+  var inp=document.getElementById("searchInput");
+  var res=document.getElementById("searchResults");
+  var clr=document.getElementById("clearBtn");
+  inp.value=""; res.style.display="none"; if(clr)clr.style.display="none"; inp.focus();
+};
+document.addEventListener("click",function(e){
+  var ns=document.getElementById("navSearch");
+  if(ns&&!ns.contains(e.target)){
+    var res=document.getElementById("searchResults");
+    if(res)res.style.display="none";
+  }
+});
+}());
+</script>
+</body></html>

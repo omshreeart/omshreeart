@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About Us | Om Shree Art — Premium Printing Studio Kathmandu</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+:root{--red:#B02238;--gold:#D4A853;--bg:#06000F;--bg2:#0a0118;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:#fff;font-family:'Segoe UI',sans-serif;}
+a{text-decoration:none;}
+.container{max-width:1200px;margin:0 auto;padding:0 32px;}
+
+/* NAV */
+nav{display:flex;align-items:center;padding:0 32px;height:68px;background:rgba(6,0,15,.95);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07);position:sticky;top:0;z-index:100;}
+#navSearch{position:relative;margin:0 20px;flex:1;max-width:300px;}
+#searchWrap{display:flex;align-items:center;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.15);border-radius:30px;padding:0 14px;height:38px;transition:.25s;}
+#searchWrap input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:13px;padding:0 10px;font-family:inherit;}
+#searchResults{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;min-width:260px;background:rgba(8,0,22,.98);border:1px solid rgba(176,34,56,.3);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.85);z-index:9999;}
+.nav-links{display:flex;align-items:center;gap:28px;margin:0 auto;}
+.nav-links a{color:rgba(255,255,255,.65);font-weight:500;font-size:14px;transition:.2s;}
+.nav-links a:hover,.nav-links a.active{color:#D4A853;}
+.btn-wa-nav{display:flex;align-items:center;gap:7px;background:#25D366;color:#fff;padding:9px 18px;border-radius:30px;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0;}
+
+/* HERO */
+.about-hero{padding:90px 0 70px;text-align:center;background:linear-gradient(180deg,rgba(176,34,56,.08) 0%,transparent 100%);position:relative;overflow:hidden;}
+.about-hero::before{content:"";position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(176,34,56,.15),transparent 70%);pointer-events:none;}
+.about-hero h1{font-size:clamp(42px,6vw,72px);font-weight:900;line-height:1.05;}
+.about-hero h1 em{color:var(--gold);font-style:italic;}
+.about-hero p{margin-top:20px;font-size:17px;color:rgba(255,255,255,.55);max-width:580px;margin-left:auto;margin-right:auto;line-height:1.75;}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:80px 0;}
+.story-img{border-radius:20px;background:linear-gradient(135deg,rgba(176,34,56,.2),rgba(212,168,83,.1));border:1px solid rgba(255,255,255,.08);height:380px;display:flex;align-items:center;justify-content:center;font-size:80px;position:relative;overflow:hidden;}
+.story-img::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(176,34,56,.1),transparent);}
+.story-text h2{font-size:36px;font-weight:900;margin-bottom:20px;}
+.story-text h2 em{color:var(--gold);font-style:italic;}
+.story-text p{color:rgba(255,255,255,.6);font-size:15px;line-height:1.8;margin-bottom:16px;}
+
+/* STATS */
+.stats-band{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:52px 0;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;}
+.stat-num{font-size:48px;font-weight:900;color:var(--gold);line-height:1;}
+.stat-label{font-size:13px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;margin-top:8px;}
+
+/* VALUES */
+.values{padding:80px 0;}
+.section-title{text-align:center;margin-bottom:52px;}
+.section-title h2{font-size:38px;font-weight:900;}
+.section-title h2 em{color:var(--gold);font-style:italic;}
+.section-title p{color:rgba(255,255,255,.45);margin-top:12px;font-size:15px;}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.val-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:36px 28px;transition:.3s;}
+.val-card:hover{border-color:rgba(176,34,56,.4);background:rgba(176,34,56,.05);transform:translateY(-4px);}
+.val-icon{font-size:40px;margin-bottom:18px;}
+.val-card h3{font-size:19px;font-weight:800;margin-bottom:10px;}
+.val-card p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;}
+
+/* TEAM */
+.team{padding:80px 0;background:rgba(255,255,255,.02);}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.team-card{text-align:center;}
+.team-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--red),#6B0F1C);display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:900;margin:0 auto 16px;border:3px solid rgba(212,168,83,.3);}
+.team-card h3{font-size:17px;font-weight:800;}
+.team-card span{font-size:13px;color:var(--gold);margin-top:4px;display:block;}
+.team-card p{font-size:13px;color:rgba(255,255,255,.45);margin-top:8px;line-height:1.6;}
+
+/* WHY US */
+.why{padding:80px 0;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.why-item{display:flex;gap:18px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px;}
+.why-icon{font-size:28px;flex-shrink:0;}
+.why-item h4{font-size:16px;font-weight:800;margin-bottom:6px;}
+.why-item p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;}
+
+/* CTA */
+.about-cta{padding:80px 0;text-align:center;}
+.about-cta h2{font-size:42px;font-weight:900;}
+.about-cta h2 em{color:var(--gold);font-style:italic;}
+.about-cta p{color:rgba(255,255,255,.5);margin-top:14px;font-size:16px;}
+.cta-btns{display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap;}
+.btn-red{background:var(--red);color:#fff;padding:13px 28px;border-radius:30px;font-weight:700;font-size:14px;transition:.2s;}
+.btn-red:hover{background:#8B0000;}
+.btn-green{background:#25D366;color:#fff;padding:13px 28px;border-radius:30px;font-weight:700;font-size:14px;}
+.btn-outline{border:1.5px solid rgba(255,255,255,.25);color:#fff;padding:13px 28px;border-radius:30px;font-weight:600;font-size:14px;}
+
+/* FOOTER */
+footer{background:#04010D;border-top:1px solid rgba(255,255,255,.06);padding:48px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.f-logo{font-size:18px;font-weight:900;color:#fff;margin-bottom:10px;}
+.f-desc{font-size:13px;color:rgba(255,255,255,.35);line-height:1.7;}
+.f-title{font-size:11px;font-weight:800;letter-spacing:1.5px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:14px;}
+.flinks{display:flex;flex-direction:column;gap:10px;}
+.flinks a{font-size:13px;color:rgba(255,255,255,.5);transition:.2s;}
+.flinks a:hover{color:var(--gold);}
+.f-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:rgba(255,255,255,.2);}
+
+@media(max-width:768px){
+  .story-grid,.values-grid,.team-grid,.why-grid,.stats-grid,.footer-grid{grid-template-columns:1fr;}
+  .about-hero h1{font-size:36px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div style="background:linear-gradient(90deg,#8B0000,#B02238,#8B0000);text-align:center;padding:10px 20px;font-size:13px;font-weight:600;color:#fff;">
+  &#127880; Dashain &amp; Tihar Special &mdash; <b>25% OFF</b> on all orders &mdash; <a href="contact.html" style="color:#FFD700;font-weight:700;">Order Now &rarr;</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+    <img src="img/omshreeart-logo.svg" alt="OSA" style="height:40px;width:40px;object-fit:contain;border-radius:8px;">
+    <div style="line-height:1.15;">
+      <div style="font-weight:700;font-size:14px;color:#fff;">Om Shree Art</div>
+      <div style="font-size:9px;color:rgba(255,255,255,.4);letter-spacing:1.5px;text-transform:uppercase;">Premium Printing Studio</div>
+    </div>
+  </a>
+  <div id="navSearch">
+    <div id="searchWrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Search..." autocomplete="off" oninput="doSearch(this.value)">
+      <span id="clearBtn" onclick="clearSrch()" style="display:none;color:rgba(255,255,255,.4);cursor:pointer;font-size:18px;">&times;</span>
+    </div>
+    <div id="searchResults"></div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="faq.html">FAQ</a>
+    <a href="terms.html">Terms</a>
+  </div>
+  <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order" class="btn-wa-nav" style="margin-left:24px;">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="container">
+    <h1>About <em>ॐ श्री आर्ट</em></h1>
+    <p>Kathmandu's most trusted printing studio — delivering pixel-perfect quality, same-day service, and unmatched craftsmanship since 2006.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section style="border-top:1px solid rgba(255,255,255,.06);">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img">🖨️</div>
+      <div class="story-text">
+        <h2>Our <em>Story</em></h2>
+        <p>Om Shree Art was born in the heart of Kathmandu with a simple mission — to make professional printing accessible to every business, big or small. What started as a small stamp-making shop has grown into a full-service printing studio trusted by thousands of clients across Nepal.</p>
+        <p>With over 12 years of experience, we've printed everything from single business cards to massive flex hoardings, from custom rubber stamps to illuminated LED sign boards. Every order — big or small — gets the same level of dedication and precision.</p>
+        <p>We believe great printing tells a story. And we're here to help you tell yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div><div class="stat-num">20+</div><div class="stat-label">Years in Business</div></div>
+      <div><div class="stat-num">100K+</div><div class="stat-label">Happy Clients</div></div>
+      <div><div class="stat-num">500K+</div><div class="stat-label">Jobs Completed</div></div>
+      <div><div class="stat-num">4.9&#9733;</div><div class="stat-label">Average Rating</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="container">
+    <div class="section-title">
+      <h2>What We <em>Stand For</em></h2>
+      <p>The values that drive every print we make</p>
+    </div>
+    <div class="values-grid">
+      <div class="val-card">
+        <div class="val-icon">🎯</div>
+        <h3>Pixel-Perfect Quality</h3>
+        <p>We never compromise on quality. Every job is reviewed before it leaves our studio — colours, alignment, finish, all perfect.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">⚡</div>
+        <h3>Same-Day Delivery</h3>
+        <p>Most orders are ready within hours. We know business doesn't wait, so neither do we. Rush orders are our specialty.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">💰</div>
+        <h3>Fair Pricing</h3>
+        <p>Premium quality shouldn't cost a fortune. We offer the best price-to-quality ratio in Kathmandu — guaranteed.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">🤝</div>
+        <h3>Honest Service</h3>
+        <p>No hidden costs, no surprises. We give you a clear quote upfront and deliver exactly what we promise.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">🎨</div>
+        <h3>Free Design Help</h3>
+        <p>Don't have a design file? No problem. Our in-house designers will help you create the perfect design at no extra charge.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">🌱</div>
+        <h3>Local & Trusted</h3>
+        <p>We're a proud Nepali business. Every rupee you spend here stays in the community and supports local livelihoods.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" style="background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.06);">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Choose <em>Us?</em></h2>
+      <p>Thousands of businesses in Kathmandu already have</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">📍</div>
+        <div>
+          <h4>Central Location</h4>
+          <p>Located in the heart of Kathmandu — easy to reach, easy to pick up your order.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🖨️</div>
+        <div>
+          <h4>Latest Equipment</h4>
+          <p>We use professional-grade printers for sharp, vibrant, long-lasting prints every time.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">📱</div>
+        <div>
+          <h4>WhatsApp Ordering</h4>
+          <p>Place your order instantly via WhatsApp — send your design, get a quote in under 5 minutes.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🔄</div>
+        <div>
+          <h4>Free Reprints</h4>
+          <p>If there's ever a print defect on our end, we reprint for free. Your satisfaction is guaranteed.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🏆</div>
+        <div>
+          <h4>Experienced Team</h4>
+          <p>Our designers and print technicians have 10+ years of hands-on experience in the industry.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">📦</div>
+        <div>
+          <h4>Bulk Order Discounts</h4>
+          <p>The more you order, the more you save. Special rates for businesses and bulk orders of 100+ pieces.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <div class="container">
+    <h2>Ready to <em>Print?</em></h2>
+    <p>Get a free quote in under 5 minutes — just WhatsApp us your design!</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order" class="btn-green">&#128172; WhatsApp Now</a>
+      <a href="products.html" class="btn-outline">View Products</a>
+      <a href="contact.html" class="btn-red">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo">Om Shree Art</div>
+        <p class="f-desc">Kathmandu's premium printing studio. Business cards, sign boards, flex printing, rubber stamps & more.</p>
+      </div>
+      <div>
+        <div class="f-title">Products</div>
+        <div class="flinks">
+          <a href="number-plate.html">&#128663;&nbsp;Number Plate</a>
+          <a href="rubber-stamp.html">&#128203;&nbsp;Rubber Stamp</a>
+          <a href="business-card-printing.html">&#128179;&nbsp;Business Cards</a>
+          <a href="sticker-printing.html">&#127991;&nbsp;Sticker Printing</a>
+          <a href="banner-printing.html">&#128444;&nbsp;Banner Printing</a>
+          <a href="flex-printing.html">&#127959;&nbsp;Flex Printing</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-title">Company</div>
+        <div class="flinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+          <a href="faq.html">FAQ</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-title">Contact</div>
+        <div class="flinks">
+          <a href="tel:9851154009">&#128222; 985-1154009</a>
+          <a href="https://wa.me/9779851154009?text=Hello%2C+I+want+to+place+an+order">&#128172; WhatsApp</a>
+          <a href="mailto:omshreeart@gmail.com">&#128140; omshreeart@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>&copy; 2024 Om Shree Art. All rights reserved.</span>
+      <span>Made with &#10084; in Kathmandu, Nepal</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var P=[
+  {n:'Business Cards',p:'Rs.350+',e:'\u{1FAAA}',u:'business-card-printing.html'},
+  {n:'Number Plates',p:'Rs.800+',e:'\u{1F522}',u:'number-plate.html'},
+  {n:'Rubber Stamps',p:'Rs.450+',e:'\u{1F50F}',u:'rubber-stamp.html'},
+  {n:'Flex Printing',p:'Rs.900+',e:'\u{1F3F7}',u:'flex-printing.html'},
+  {n:'Sticker Printing',p:'Rs.200+',e:'\u2B50',u:'sticker-printing.html'},
+  {n:'Banner Printing',p:'Rs.600+',e:'\u{1F38C}',u:'banner-printing.html'},
+  {n:'Sign Boards',p:'Rs.2.5k+',e:'\u{1F4A1}',u:'sign-board.html'},
+  {n:'About',p:'',e:'\u{1F3E2}',u:'about.html'},
+  {n:'Products',p:'',e:'\u{1F6CD}',u:'products.html'},
+  {n:'FAQ',p:'',e:'\u2753',u:'faq.html'},
+  {n:'Contact',p:'',e:'\u{1F4DE}',u:'contact.html'}
+];
+window.doSearch=function(q){
+  var res=document.getElementById('searchResults');
+  var clr=document.getElementById('clearBtn');
+  if(clr)clr.style.display=q?'inline':'none';
+  if(!q.trim()){res.style.display='none';return;}
+  var found=P.filter(function(x){return x.n.toLowerCase().indexOf(q.toLowerCase())>=0;});
+  res.innerHTML=found.length?found.map(function(x){
+    return '<a href="'+x.u+'" style="padding:10px 14px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:12px"><span style="font-size:18px">'+x.e+'</span><div><div style="font-size:13px;font-weight:600">'+x.n+'</div>'+(x.p?'<div style="font-size:11px;color:#D4A853">'+x.p+'</div>':'')+'</div></a>';
+  }).join(''):'<div style="padding:13px 16px;color:rgba(255,255,255,.55);font-size:13px">No results found</div>';
+  res.style.display='block';
+};
+window.clearSrch=function(){
+  document.getElementById('searchInput').value='';
+  document.getElementById('searchResults').style.display='none';
+  document.getElementById('clearBtn').style.display='none';
+  document.getElementById('searchInput').focus();
+};
+document.addEventListener('click',function(e){
+  var ns=document.getElementById('navSearch');
+  if(ns&&!ns.contains(e.target)){document.getElementById('searchResults').style.display='none';}
+});
+}());
+</script>
+</body>
+</html>
